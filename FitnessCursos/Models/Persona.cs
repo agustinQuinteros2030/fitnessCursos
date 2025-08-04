@@ -1,12 +1,22 @@
-﻿namespace FitnessCursos.Models
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace FitnessCursos.Models
 {
-    public class Persona
+    public class Persona : IdentityUser<string>
     {
-        public String Id { get; set; }
+        //public String Id { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
-        public string Username { get; set; }
-        public string Email { get; set; }
+        public override string UserName
+        {
+            get => base.UserName;
+            set => base.UserName = value;
+        }
+        public override string Email
+        {
+            get => base.Email;
+            set => base.Email = value;
+        }
         public DateTime FechaRegistracion { get; set; } = DateTime.Now;
 
 
